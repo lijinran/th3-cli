@@ -1,6 +1,6 @@
 {
   "name": "th3-cli",
-  "version": "1.0.0",
+  "version": "1.0.11",
   "description": "CLI for scaffolding th3-cli projects , 前端项目, 构建工具",
   "main": "bin/th3.js",
   "preferGlobal": true,

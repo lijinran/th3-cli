@@ -38,9 +38,12 @@ async function init() {
     case "electron":
       name = "macadamia";
       break;
-    case "vue-template-m":
-      name = "vue-template-m"; // VUE移动版的模板
+    case "vue-th3-pc":
+      name = "vue-th3-pc"; // VUE移动版的模板
       break;
+      case "vue-th3-m":
+        name = "vue-th3-m"; // VUE移动版的模板
+        break;
     default:
       break;
   }
@@ -62,8 +65,8 @@ async function selectTemplate() {
       type: "list",
       default: 0,
       choices: [
-        // 'PC',
-        "vue-template-m"
+        'vue-th3-m',
+        "vue-th3-pc"
       ]
     })
     .catch(err => {

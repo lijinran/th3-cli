@@ -82,7 +82,10 @@
 
 ```
 // 移动端VUE 项目的模板
-https://www.npmjs.com/package/vue-template-m
+https://www.npmjs.com/package/vue-th3-m
+```
+// PC端 VUE 项目的模板
+https://www.npmjs.com/package/vue-th3-pc
 ```
 
 | 参数       | 说明               |
