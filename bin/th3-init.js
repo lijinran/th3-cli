@@ -39,17 +39,25 @@ async function init() {
       name = "macadamia";
       break;
     case "vue-th3-pc":
-      name = "vue-th3-pc"; // VUE移动版的模板
+      name = "vue-th3-pc"; // VUE的PC版模板
       break;
-      case "vue-th3-m":
-        name = "vue-th3-m"; // VUE移动版的模板
-        break;
+    case "vue-th3-m":
+      name = "vue-th3-m"; // VUE移动版的模板
+      break;
+    case "vue-th3-pages":
+      name = "vue-th3-pages"; // VUE移动版的模板
+      break;
     default:
       break;
   }
   await pacote.extract(name, dist, { registry });
   spinner.stop();
-  afterDownload();
+  if(name=='vue-th3-pages'){
+    afterDownloadPages()
+  }else{
+    afterDownload();
+  }
+
 }
 
 /**
@@ -65,8 +73,18 @@ async function selectTemplate() {
       type: "list",
       default: 0,
       choices: [
-        'vue-th3-m',
-        "vue-th3-pc"
+        {
+          name: 'vue-th3-pc',
+          value: 'vue-th3-pc'
+        },
+        {
+          name: 'vue-th3-m',
+          value: 'vue-th3-m'
+        },
+        {
+          name: 'vue-th3-pages',
+          value: 'vue-th3-pages'
+        }
       ]
     })
     .catch(err => {
@@ -107,5 +125,30 @@ function afterDownload() {
   log("    - th3 server          运行开发项目", "white");
   log("    - th3 build           打包发布项目", "white");
   // log('    - th3 update          更新框架以及命令行工具至最新版本', 'white');
+  log();
+}
+
+function afterDownloadPages() {
+  fs.removeSync(resolveCwd(".npmignore"));
+  fs.readFile(resolveCwd("gitignore"), (err, data) => {
+    if (err) throw err;
+    fs.writeFile(resolveCwd(".gitignore"), data, err => {
+      if (err) throw err;
+      log("The file has been saved!");
+    });
+  });
+  log();
+  log("已完成项目的初始化:", "green");
+  log();
+  log(`在当前目录中新建了项目`, "white");
+  log();
+  log("接下来你需要：", "white");
+  log();
+  log("     npm install", "yellow");
+  log();
+  log("然后你可以：", "white");
+  log();
+  log("     npm run serve         运行开发项目", "yellow");
+  log("     npm run build           打包发布项目", "yellow");
   log();
 }
