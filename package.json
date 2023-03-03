@@ -84,10 +84,10 @@
     "webpack-merge": "^2.6.1"
   },
   "devDependencies": {
-    "commitizen": "^2.9.6",
+    "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^2.0.0",
     "intelli-espower-loader": "^1.0.1",
-    "mocha": "^3.4.2",
+    "mocha": "^10.2.0",
     "power-assert": "^1.4.4"
   },
   "bugs": {
